@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassTracker - Gestão de Turmas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1>📚 ClassTracker</h1>
+                    <div class="header-info">
+                        <span id="currentDate"></span>
+                        <select id="turmaSelector" class="form-control turma-selector">
+                            <option value="">Selecionar Turma...</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="app-layout">
+                    <!-- Sidebar -->
+                    <aside class="sidebar">
+                        <div class="sidebar-section">
+                            <h3>Turmas</h3>
+                            <div class="turma-form">
+                                <input type="text" id="novaTurma" placeholder="Nome da turma" class="form-control">
+                                <button id="adicionarTurma" class="btn btn--primary btn--sm">+ Adicionar</button>
+                            </div>
+                            <ul id="listaTurmas" class="turmas-list"></ul>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <div class="content">
+                        <!-- Navigation Tabs -->
+                        <nav class="tabs-nav">
+                            <button class="tab-btn active" data-tab="alunos">👥 Alunos</button>
+                            <button class="tab-btn" data-tab="presencas">✅ Presenças</button>
+                            <button class="tab-btn" data-tab="participacoes">🗣️ Participações</button>
+                            <button class="tab-btn" data-tab="tarefas">📝 Tarefas</button>
+                            <button class="tab-btn" data-tab="notas">📔 Notas</button>
+                        </nav>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <!-- Alunos Tab -->
+                            <div id="alunos" class="tab-pane active">
+                                <div class="tab-header">
+                                    <h2>Gestão de Alunos</h2>
+                                    <div class="aluno-form">
+                                        <input type="text" id="novoAluno" placeholder="Nome do aluno" class="form-control">
+                                        <button id="adicionarAluno" class="btn btn--primary">Adicionar Aluno</button>
+                                    </div>
+                                </div>
+                                <div id="listaAlunos" class="alunos-grid"></div>
+                            </div>
+
+                            <!-- Presenças Tab -->
+                            <div id="presencas" class="tab-pane">
+                                <div class="tab-header">
+                                    <h2>Registo de Presenças</h2>
+                                    <div class="presencas-info">
+                                        <span id="dataPresencas"></span>
+                                        <button id="resetPresencas" class="btn btn--outline btn--sm">Reset Presenças</button>
+                                    </div>
+                                </div>
+                                <div id="presencasGrid" class="presencas-grid"></div>
+            </div>
+
+                            <!-- Participações Tab -->
+                            <div id="participacoes" class="tab-pane">
+                                <div class="tab-header">
+                                    <h2>Contador de Participações</h2>
+                                    <button id="resetParticipacoes" class="btn btn--outline btn--sm">Reset Diário</button>
+                                </div>
+                                <div id="participacoesGrid" class="participacoes-grid"></div>
+                            </div>
+
+                            <!-- Tarefas Tab -->
+                            <div id="tarefas" class="tab-pane">
+                                <div class="tab-header">
+                                    <h2>Tarefas Diárias</h2>
+                                    <div class="tarefa-form">
+                                        <input type="text" id="novaTarefa" placeholder="Nova tarefa..." class="form-control">
+                                        <button id="adicionarTarefa" class="btn btn--primary">Adicionar</button>
+                                    </div>
+                                </div>
+                                <ul id="listaTarefas" class="tarefas-list"></ul>
+                            </div>
+
+                            <!-- Notas Tab -->
+                            <div id="notas" class="tab-pane">
+                                <div class="tab-header">
+                                    <h2>Notas sobre Alunos</h2>
+                                </div>
+                                <div id="notasGrid" class="notas-grid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-backdrop">
+            <div class="modal-content">
+                <h3 id="confirmTitle">Confirmar Ação</h3>
+                <p id="confirmMessage">Tem certeza que deseja continuar?</p>
+                <div class="modal-actions">
+                    <button id="confirmCancel" class="btn btn--outline">Cancelar</button>
+                    <button id="confirmOk" class="btn btn--primary">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
