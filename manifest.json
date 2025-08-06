@@ -43,5 +43,24 @@
       "type": "image/svg+xml",
       "purpose": "maskable"
     }
+  ],
+  "widgets": [
+    {
+      "name": "Tarefas Pendentes",
+      "description": "Veja as suas tarefas pendentes.",
+      "tag": "pending-tasks",
+      "template": "pending-tasks-template",
+      "ms_ac_template": "pending-tasks-template.json",
+      "data": "pending-tasks.json",
+      "type": "application/json"
+    }
+  ],
+  "background_sync": {
+    "disabled": false
+  },
+  "categories": [
+    "education",
+    "productivity",
+    "utilities"
   ]
 }
