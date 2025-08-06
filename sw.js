@@ -32,3 +32,29 @@ self.addEventListener('fetch', event => {
     )
   );
 });
+
+self.addEventListener('widgetinstall', event => {
+  console.log('Widget installed', event);
+  event.waitUntil(renderWidget(event.widget));
+});
+
+self.addEventListener('widgetuninstall', event => {
+  console.log('Widget uninstalled', event);
+});
+
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'my-sync-tag') {
+    event.waitUntil(doSomeSync());
+  }
+});
+
+function doSomeSync() {
+  console.log('Background sync in progress');
+  // Add your sync logic here
+  return Promise.resolve();
+}
+
+async function renderWidget(widget) {
+    // For now, we'll just log the widget object
+    console.log('Rendering widget:', widget);
+}
