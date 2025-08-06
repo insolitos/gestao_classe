@@ -5,11 +5,17 @@
   "start_url": "/",
   "id": "/",
   "display": "standalone",
+  "display_override": [
+    "window-controls-overlay"
+  ],
   "background_color": "#FCFCF9",
   "theme_color": "#21808D",
   "orientation": "any",
   "launch_handler": {
     "client_mode": "navigate-existing"
+  },
+  "edge_side_panel": {
+    "preferred_width": 480
   },
   "screenshots": [],
   "icons": [
